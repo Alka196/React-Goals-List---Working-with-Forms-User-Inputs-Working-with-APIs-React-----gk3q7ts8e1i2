@@ -5,6 +5,17 @@ const GoalForm = () => {
       goal: "",
       by: ""
     });
+
+    // function handleAdd(event){
+    //   event.preventDefault();
+    //    //return setFormData((e)=>{e.target.valuee})
+    // }
+    const handleChange = (e) => {
+      e.preventDefault();
+      const values = [...formData];
+      //values[index].value = e.target.value;
+      setFormValues(values);
+    };
   
     return (
       <>
@@ -14,13 +25,18 @@ const GoalForm = () => {
             type="text" 
             name='goal' 
             placeholder='Goal...' 
+            value={formData.goal}
+             onChange={(e) => setFormData(e.target.value)}
           />
           <input 
             type="text"
             name="by"
             placeholder='By...'
+            value={formData.by}
+            onChange={(e) => setFormData(e.target.value)}
+           
           />
-          <button>Add</button>
+          <button onClick={handleChange} >Add</button>
         </form>
       </>
     )
